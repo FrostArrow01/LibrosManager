@@ -1,0 +1,31 @@
+<div class="container" style="text-align: center;border: 1px solid black; overflow:hidden;background-color: rgb(247, 255, 214);">
+
+    <h2 style="margin-top: 10px; ">Formulario de Libro</h2> <hr>
+    <p style="position: absolute;color: red;">{{msgError}}</p>
+    <div>
+    <form style="margin-left: 20%; margin-right: 20%; " [formGroup]="libroForm" (ngSubmit)="guardarLibro()">
+        <input name="titulo"  type="text" placeholder="Título" formControlName="titulo" required>
+        <input  type="number" placeholder="Edicion" formControlName="edicion" required>      
+        
+        <select name="autor" id="" formControlName="autor">
+            <option *ngFor="let autor of listAutores" [value]="autor.dni">
+                {{autor.nombre}} {{autor.apellido1}} {{autor.apellido2}} 
+            </option>
+        </select>
+
+        <select name="categoria" id="" formControlName="categoria">
+            <option *ngFor="let categoria of listCategorias" [value]="categoria.id">
+               {{categoria.id}}. {{categoria.descripcion}}
+            </option>
+        </select>
+              
+
+        <button [disabled]="isnotEnabled" name="aceptar" style="float: left;" class="btn btn-primary" style="background-color: black;" type="submit"> Guardar </button>
+        <button [routerLink]="'/inicio/libro'" style="float: left;" class="btn btn-primary"> Volver </button>
+        
+    </form>
+
+    </div>
+    </div>
+    
+    

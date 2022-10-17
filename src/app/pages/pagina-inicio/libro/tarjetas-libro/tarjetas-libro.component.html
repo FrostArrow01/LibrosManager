@@ -1,0 +1,33 @@
+<button [routerLink]="'/inicio/'" class="btn btn-primary" style="float: left;margin: 10px;">←</button>
+<h1 style="margin-left: 5%; float: left; " >Libros</h1> 
+
+<button class="btn btn-primary" style="margin-left: 5px;" (click)="marcartodos()">Marcar/desmarcar todos</button>
+
+<button style="margin-left: 5%; float: left;" (click)="exportarEx()" class="btn btn-primary">Exportar a Excel</button>
+<div class="container" style="border: 1px solid black; overflow:hidden;background-color: rgb(247, 255, 214);">
+
+    <div *ngFor="let libro of listLibros" >   
+            <div class="card" style="width:349px; height: 220px; float: left; margin: 10px;">
+                <div class="card-body">
+                
+                    <input id="checkEx" (change)="addToArray(libro)" [checked]="marca" type="checkbox" style="position: absolute;margin-left: 280px;">
+            
+                    <h3 class="card-title">{{libro.titulo}}</h3>
+                    <h6 class="card-title">Autor: {{libro.autor.nombre}} {{libro.autor.apellido1}} {{libro.autor.apellido2}}</h6>
+                    <h6>Categoría: {{libro.categoria.descripcion}}</h6>
+                    <p class="card-text">{{libro.edicion}}ª edición</p>
+                    
+                    <button (click)="borrarLibro(libro.id)" class="btn btn-primary">Borrar</button> 
+                    <button  [routerLink]="'/inicio/libro/add/'+libro.id" (click)="editarLibro(libro)" style="margin-left: 10px;" class="btn btn-primary">Editar</button> 
+                </div>
+            </div>
+    </div>
+
+    
+    <div class="card" style="width:349px; height: 220px; float: left; margin: 10px;">
+      
+        <div class="card-body">
+            <button [routerLink]="'/inicio/libro/add'" class="btn btn-primary" style="margin-left: 40%;margin-top: 20%;float: left; height: 50px;width: 50px;border-radius: 100%;">+</button>
+        </div>
+        </div>
+</div>

@@ -1,0 +1,31 @@
+
+<!-- <div *ngIf="formularioAct==true">
+    <app-formulario-add [categoria]="categoria"></app-formulario-add>
+</div> -->
+
+<button [routerLink]="'/inicio/'" class="btn btn-primary" style="float: left;margin: 10px;">←</button>
+<h1 style="margin-left: 10%;">Categorías</h1> 
+<div class="container" style="border: 1px solid black; overflow:hidden;background-color: rgb(217, 255, 214);">
+    
+    <div *ngFor="let categoria of listCategorias">
+        <div class="card" style="width:349px; height: 170px; float: left; margin: 10px;">
+        <div class="card-body">
+            <h4 class="card-title">{{categoria.id}}. {{categoria.descripcion}}</h4>
+            <p class="card-"></p>
+
+            <app-list-libro-categoria [item]="categoria.id"></app-list-libro-categoria>
+
+            <button (click)="borrarCategoria(categoria)" class="btn btn-primary">Borrar</button> 
+            <button  [routerLink]="'/inicio/categoria/add/'+categoria.id" (click)="editarCategoria(categoria)" style="margin-left: 10px;" class="btn btn-primary">Editar</button> 
+        </div>
+        </div>
+    </div>
+
+    
+    <div class="card" style="width:349px; height: 150px; float: left; margin: 10px;">
+      
+        <div class="card-body">
+            <button [routerLink]="'/inicio/categoria/add'" class="btn btn-primary" style="margin-left: 40%;margin-top: 10%;float: left; height: 50px;width: 50px;border-radius: 100%;">+</button>
+        </div>
+        </div>
+</div>

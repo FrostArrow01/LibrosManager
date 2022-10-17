@@ -1,0 +1,18 @@
+<button (click)="back()"  class="btn btn-primary" style="float: left;margin: 10px;">←</button>
+<h1>Libros de {{autor.nombre}} {{autor.apellido1}} {{autor.apellido2}} </h1>
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Edición</th>
+            <th>Categoría</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let libro of listLibrosAut">
+            <td class="tituloT" [routerLink]="'/inicio/libro/add/'+libro.id">{{libro.titulo}}</td>
+            <td style="text-align: center;">{{libro.edicion}}</td>
+            <td> {{libro.categoria.id}}. {{libro.categoria.descripcion}}</td>
+        </tr>
+    </tbody>
+</table>

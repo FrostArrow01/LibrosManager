@@ -1,0 +1,33 @@
+
+<!-- <div *ngIf="formularioAct==true">
+    <app-formulario-add [autor]="autor"></app-formulario-add>
+</div> -->
+
+<button [routerLink]="'/inicio/'" class="btn btn-primary" style="float: left;margin: 10px;">←</button>
+<h1 style="margin-left: 10%;">Autores</h1> 
+<div class="container" style="border: 1px solid black; overflow:hidden;background-color: rgb(214, 236, 255);">
+    
+    <div *ngFor="let autor of listAutores">
+        <div class="card" style="width:349px; height: 220px; float: left; margin: 10px;">
+        <div class="card-body">
+            <h4 class="card-title">{{autor.nombre}} {{autor.apellido1}} {{autor.apellido2}}</h4>
+            <p class="card-"></p>
+            <p class="card-text">{{autor.dni}} / {{autor.email}} / {{autor.telefono}}</p>
+                
+            <button (click)="borrarAutor(autor)" class="btn btn-primary">Borrar</button> 
+            <button  [routerLink]="'/inicio/autor/add/'+autor.dni"  style="margin-left: 10px;" class="btn btn-primary">Editar</button> 
+            <app-boton-mas style="float: right;" [item]="autor.dni"></app-boton-mas>
+        </div>
+        </div>
+    </div>
+
+    
+    <div class="card" style="width:349px; height: 220px; float: left; margin: 10px;">
+      
+        <div class="card-body">
+            <button [routerLink]="'/inicio/autor/add'" class="btn btn-primary" style="margin-left: 40%;margin-top: 20%;float: left; height: 50px;width: 50px;border-radius: 100%;">+</button>
+        </div>
+        </div>
+</div>
+
+

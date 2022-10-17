@@ -1,0 +1,11 @@
+<div class="container" style="width: 60%;border: 1px solid black; overflow:hidden;background-color: rgb(217, 255, 214);">
+<p style="position: absolute;color: red;">{{msgError}}</p>
+<form style="text-align: center;margin-left: 20%; margin-right: 20%; height: 150px; " [formGroup]="categoriaForm" (ngSubmit)="guardarCategoria()">
+    <h2 style="margin-top: 10px;">Formulario Categoria</h2>
+    <hr>
+    <textarea  name="descripcion"  type="text" placeholder="Descripcion" formControlName="descripcion"></textarea>
+    <button [disabled]="isnotEnabled" name="aceptar" style="float: left;" class="btn btn-primary" type="submit"> Guardar </button>
+    <button [routerLink]="'/inicio/categoria'" style="float: left;" class="btn btn-primary"> Volver </button>
+    
+</form>
+</div>

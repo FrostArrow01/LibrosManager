@@ -1,0 +1,10 @@
+<div *ngIf="listLibrosCat.length>0">
+    <div  style="float: right;overflow-y: scroll;width: 150px;height: 60px;border: 1px solid black;" >
+       
+        
+        <p style="border: 1px solid black;margin: 0;" *ngFor="let item of listLibrosCat">
+            {{item.titulo}}
+        </p>
+        
+    </div><br>
+</div>
