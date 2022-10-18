@@ -12,6 +12,7 @@ export class AutorService {
   constructor(private http: HttpClient) { }
 
 
+  
   public getAutor(): Observable<ObjectResponse<Autor[]>>{
     return this.http.get<ObjectResponse<Autor[]>>(`${this.apiServerUrl}/autor/all`);
   }

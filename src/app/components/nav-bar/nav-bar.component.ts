@@ -7,10 +7,17 @@ import { Location } from '@angular/common';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+  enableEmail: Boolean;
 
-  constructor(private location: Location) { }
+  constructor(private location: Location) {
+    this.enableEmail = false;
+   }
 
   ngOnInit(): void {
+  }
+
+  addEmail(){
+    this.enableEmail = this.enableEmail===false ? this.enableEmail=true : this.enableEmail=false;
   }
 
   back(){

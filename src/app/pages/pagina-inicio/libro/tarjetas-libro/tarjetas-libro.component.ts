@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Libro } from 'src/app/models/libro';
 import { Categoria } from 'src/app/models/categoria';
 import { Autor } from 'src/app/models/autor';
@@ -7,6 +7,8 @@ import * as FileSaver from 'file-saver';
 import { Files } from 'src/app/utils/Files';
 // import { Files } from 'src/app/utils/Files';
 import * as XLSX from 'xlsx'
+import { EmailService } from 'src/app/services/email.service';
+import { Email } from 'src/app/models/email';
 
 
 
@@ -24,13 +26,19 @@ export class TarjetasLibroComponent implements OnInit {
   listLibrosExcel: Libro[];
   formularioAct: boolean;
   libroMandar: Libro;
+  enableEmail: Boolean;
+
   
   
-  constructor(private libroService: LibroService,) { 
+  constructor(private libroService: LibroService, private emailService: EmailService) { 
     this.listLibros = [];
     this.listLibrosExcel = [];
     this.formularioAct = false;
+  
+
  
+    this.enableEmail = false;
+
     this.libroMandar = {
       id: 0,
       titulo: '',
@@ -38,8 +46,9 @@ export class TarjetasLibroComponent implements OnInit {
       autor: {dni: '', nombre: '', apellido1: '', apellido2: '', telefono: '', email: ''},
       categoria: {id: 0, descripcion: ''}
     } 
-  
   }
+
+  
 
   ngOnInit(): void {
     this.libroService.getLibro().subscribe(result =>{ 
@@ -65,14 +74,14 @@ export class TarjetasLibroComponent implements OnInit {
     const found = this.listLibrosExcel.includes(libro);
     const libroFound = this.listLibrosExcel.find(element => element.id === libro.id);
   
-    if(found==false){
+    if(found===false){
       this.listLibrosExcel.push(libro);
     }else{
-      this.listLibrosExcel.forEach((element, i) =>{
+      // this.listLibrosExcel.forEach((element, i) =>{
       const nuevaArray = this.listLibrosExcel.filter(element => element.id !== libroFound?.id)
       this.listLibrosExcel = nuevaArray;
 
-      });
+      // });
     }
   }
 
@@ -87,6 +96,11 @@ export class TarjetasLibroComponent implements OnInit {
       
       });
     }
+  }
+
+  sendMail(){
+    this.enableEmail = this.enableEmail ? this.enableEmail=false : this.enableEmail=true;
+
   }
   
 

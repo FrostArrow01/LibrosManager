@@ -1,11 +1,17 @@
+<div class="container">
+    <app-new-email *ngIf="enableEmail" style="position: absolute; z-index: 10; height: 100%;"></app-new-email>
+</div>
+
+
 <button [routerLink]="'/inicio/'" class="btn btn-primary" style="float: left;margin: 10px;">←</button>
 <h1 style="margin-left: 5%; float: left; " >Libros</h1> 
 
+<button style="margin-left: 5%;float: left;" (click)="sendMail()" class="btn btn-primary">Enviar email</button>
 <button class="btn btn-primary" style="margin-left: 5px;" (click)="marcartodos()">Marcar/desmarcar todos</button>
-
 <button style="margin-left: 5%; float: left;" (click)="exportarEx()" class="btn btn-primary">Exportar a Excel</button>
-<div class="container" style="border: 1px solid black; overflow:hidden;background-color: rgb(247, 255, 214);">
 
+
+<div class="container" style="border: 1px solid black; overflow:hidden;background-color: rgb(247, 255, 214);position: relative;">
     <div *ngFor="let libro of listLibros" >   
             <div class="card" style="width:349px; height: 220px; float: left; margin: 10px;">
                 <div class="card-body">

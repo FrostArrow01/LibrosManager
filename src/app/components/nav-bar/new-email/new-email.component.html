@@ -1,0 +1,20 @@
+<body style="background-color: rgba(0, 0, 0, 0.123);">
+    
+    <div class="container" style="z-index: 5;margin-left: 8%;border: 1px solid black; overflow:hidden;background-color: rgb(247, 255, 214);">
+
+        <form style="text-align: center;margin-left: 20%; margin-right: 20%; height: 150px; " [formGroup]="emailForm" (ngSubmit)="guardarEmail()">
+            <h2 style="margin-top: 10px;">Nuevo Email</h2>
+            <hr>
+            <input type="text" placeholder="Para" formControlName="to" required>
+            <input type="text" placeholder="Asunto" formControlName="subject" required>
+            <textarea  name="text"  type="text" placeholder="Texto" formControlName="text" required></textarea>
+            <button name="aceptar" style="float: left;" class="btn btn-primary" type="submit"> Enviar </button>
+            <button (click)="volver()" style="margin-left: 5px;float: left;" class="btn btn-primary"> Volver </button>
+            <input id="checkArch" (change)="habilitarArch()" type="checkbox"> <label for="checkArch">Adjuntar archivo</label>
+            <div *ngIf="enableArchivo">
+                <input id="archivo" class="file-input" type="file" formControlName="file">
+            </div>
+        </form>
+
+    </div>
+</body>

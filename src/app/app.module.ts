@@ -17,10 +17,12 @@ import { LibroService } from './services/libro.service';
 import { CategoriaService } from './services/categoria.service';
 import { ListLibroAutorComponent } from './pages/pagina-inicio/autor/list-libro-autor/list-libro-autor.component';
 import { ListLibroCategoriaComponent } from './pages/pagina-inicio/categoria/list-libro-categoria/list-libro-categoria.component';
-import { NavBarComponent } from './models/components/nav-bar/nav-bar.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BotonMasComponent } from './pages/pagina-inicio/autor/boton-mas/boton-mas.component';
 import { NgModel } from '@angular/forms';
+import { EmailService } from './services/email.service';
+import { NewEmailComponent } from './components/nav-bar/new-email/new-email.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { NgModel } from '@angular/forms';
     ListLibroCategoriaComponent,
     NavBarComponent,
     BotonMasComponent,
+    NewEmailComponent,
     
    
     
@@ -50,7 +53,7 @@ import { NgModel } from '@angular/forms';
     MatSliderModule,
     FormsModule
   ],
-  providers: [AutorService, LibroService, CategoriaService],
+  providers: [AutorService, LibroService, CategoriaService, EmailService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
